@@ -26,19 +26,19 @@
         "height": 480,
         "marginLeft": 90,
         "x": { "label": null },
-        "y": { "label": "Parameters", "type": "log" },
+        "y": { "label": "Training compute (FLOP)", "type": "log" },
         "color": { "legend": true },
         "marks": [
           {
             "type": "band",
-            "x1": "2012-01-01",
+            "x1": "2010-01-01",
             "x2": "2026-01-01",
             "fill": "#e8eef7",
             "fillOpacity": 0.5
           },
           {
             "type": "text",
-            "staticData": [{ "x": "2020-01-01", "y": 1e16, "label": "Deep Learning Era" }],
+            "staticData": [{ "x": "2019-01-01", "y": 1e28, "label": "Deep Learning Era" }],
             "x": "x", "y": "y", "text": "label",
             "stroke": "#6b7280",
             "fontSize": 11
@@ -46,7 +46,7 @@
           {
             "type": "dot",
             "x": "Publication date",
-            "y": "Parameters",
+            "y": "Training compute (FLOP)",
             "stroke": "Domain",
             "r": 3,
             "opacity": 0.45,
@@ -55,8 +55,8 @@
           {
             "type": "line",
             "staticData": [
-              { "x": "1952-01-01", "y": 1000 },
-              { "x": "2012-01-01", "y": 60000000 }
+              { "x": "1952-01-01", "y": 5e6 },
+              { "x": "2010-01-01", "y": 1e17 }
             ],
             "x": "x", "y": "y",
             "stroke": "#6b7280",
@@ -65,7 +65,7 @@
           },
           {
             "type": "text",
-            "staticData": [{ "x": "1988-01-01", "y": 3000, "label": "~1.5× / year" }],
+            "staticData": [{ "x": "1985-01-01", "y": 2e8, "label": "~1.5× / year" }],
             "x": "x", "y": "y", "text": "label",
             "stroke": "#6b7280",
             "fontSize": 11,
@@ -75,8 +75,8 @@
           {
             "type": "line",
             "staticData": [
-              { "x": "2012-01-01", "y": 60000000 },
-              { "x": "2025-06-01", "y": 3000000000000 }
+              { "x": "2010-01-01", "y": 1e17 },
+              { "x": "2025-06-01", "y": 5e25 }
             ],
             "x": "x", "y": "y",
             "stroke": "#374151",
@@ -85,7 +85,7 @@
           },
           {
             "type": "text",
-            "staticData": [{ "x": "2017-06-01", "y": 5e12, "label": "~4× / year" }],
+            "staticData": [{ "x": "2016-01-01", "y": 5e25, "label": "~4.3× / year" }],
             "x": "x", "y": "y", "text": "label",
             "stroke": "#374151",
             "fontSize": 11,
