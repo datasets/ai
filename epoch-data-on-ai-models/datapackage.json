@@ -17,25 +17,62 @@
   ],
   "views": [
     {
-      "name": "parameters-over-time",
-      "title": "Model Parameters Over Time (2015–2025)",
+      "name": "model-releases-per-year",
+      "title": "AI Model Releases Per Year",
       "resources": ["notable-ai-models"],
       "specType": "plot",
       "spec": {
         "dateFields": ["Publication date"],
+        "computed": [
+          { "field": "Year", "from": "Publication date", "extract": "year" }
+        ],
+        "filter": { "field": "Year", "gte": 2000 },
+        "marks": [
+          {
+            "type": "barY",
+            "x": "Year",
+            "group": "count",
+            "fill": "#1D6996",
+            "tip": true
+          }
+        ],
+        "x": { "label": "Year" },
+        "y": { "label": "Number of models" },
+        "height": 300
+      }
+    },
+    {
+      "name": "parameters-over-time",
+      "title": "Model Scale Over Time",
+      "resources": ["notable-ai-models"],
+      "specType": "plot",
+      "spec": {
+        "dateFields": ["Publication date"],
+        "filter": { "field": "Publication date", "gte": "2000-01-01" },
         "marks": [
           {
             "type": "dot",
             "x": "Publication date",
             "y": "Parameters",
             "stroke": "Domain",
+            "r": 3,
+            "opacity": 0.3,
+            "tip": false
+          },
+          {
+            "type": "line",
+            "x": "Publication date",
+            "y": "Parameters",
+            "stroke": "#111111",
+            "filter": { "field": "Frontier model", "eq": "True" },
+            "sort": "Publication date",
             "tip": true
           }
         ],
         "x": { "label": "Publication Date" },
         "y": { "label": "Parameters (log scale)", "type": "log" },
         "color": { "legend": true },
-        "height": 400,
+        "height": 420,
         "marginLeft": 80
       }
     }
