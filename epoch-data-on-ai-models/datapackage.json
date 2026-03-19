@@ -17,63 +17,82 @@
   ],
   "views": [
     {
-      "name": "model-releases-per-year",
-      "title": "AI Model Releases Per Year",
+      "name": "model-scale-over-time",
+      "title": "Growth of AI Model Scale",
       "resources": ["notable-ai-models"],
       "specType": "plot",
       "spec": {
         "dateFields": ["Publication date"],
-        "computed": [
-          { "field": "Year", "from": "Publication date", "extract": "year" }
-        ],
-        "filter": { "field": "Year", "gte": 2000 },
+        "height": 480,
+        "marginLeft": 90,
+        "x": { "label": null },
+        "y": { "label": "Parameters", "type": "log" },
+        "color": { "legend": true },
         "marks": [
           {
-            "type": "barY",
-            "x": "Year",
-            "group": "count",
-            "fill": "#1D6996",
-            "tip": true
-          }
-        ],
-        "x": { "label": "Year" },
-        "y": { "label": "Number of models" },
-        "height": 300
-      }
-    },
-    {
-      "name": "parameters-over-time",
-      "title": "Model Scale Over Time",
-      "resources": ["notable-ai-models"],
-      "specType": "plot",
-      "spec": {
-        "dateFields": ["Publication date"],
-        "filter": { "field": "Publication date", "gte": "2000-01-01" },
-        "marks": [
+            "type": "band",
+            "x1": "2012-01-01",
+            "x2": "2026-01-01",
+            "fill": "#e8eef7",
+            "fillOpacity": 0.5
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "2020-01-01", "y": 1e16, "label": "Deep Learning Era" }],
+            "x": "x", "y": "y", "text": "label",
+            "stroke": "#6b7280",
+            "fontSize": 11
+          },
           {
             "type": "dot",
             "x": "Publication date",
             "y": "Parameters",
             "stroke": "Domain",
             "r": 3,
-            "opacity": 0.3,
-            "tip": false
+            "opacity": 0.45,
+            "tip": true
           },
           {
             "type": "line",
-            "x": "Publication date",
-            "y": "Parameters",
-            "stroke": "#111111",
-            "filter": { "field": "Frontier model", "eq": "True" },
-            "sort": "Publication date",
-            "tip": true
+            "staticData": [
+              { "x": "1952-01-01", "y": 1000 },
+              { "x": "2012-01-01", "y": 60000000 }
+            ],
+            "x": "x", "y": "y",
+            "stroke": "#6b7280",
+            "strokeDasharray": "6,4",
+            "tip": false
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "1988-01-01", "y": 3000, "label": "~1.5× / year" }],
+            "x": "x", "y": "y", "text": "label",
+            "stroke": "#6b7280",
+            "fontSize": 11,
+            "textAnchor": "start",
+            "dy": -8
+          },
+          {
+            "type": "line",
+            "staticData": [
+              { "x": "2012-01-01", "y": 60000000 },
+              { "x": "2025-06-01", "y": 3000000000000 }
+            ],
+            "x": "x", "y": "y",
+            "stroke": "#374151",
+            "strokeDasharray": "6,4",
+            "tip": false
+          },
+          {
+            "type": "text",
+            "staticData": [{ "x": "2017-06-01", "y": 5e12, "label": "~4× / year" }],
+            "x": "x", "y": "y", "text": "label",
+            "stroke": "#374151",
+            "fontSize": 11,
+            "textAnchor": "start",
+            "dy": -8
           }
-        ],
-        "x": { "label": "Publication Date" },
-        "y": { "label": "Parameters (log scale)", "type": "log" },
-        "color": { "legend": true },
-        "height": 420,
-        "marginLeft": 80
+        ]
       }
     }
   ],
